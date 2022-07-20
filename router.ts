@@ -2,6 +2,7 @@ import { Express } from 'express';
 import usersController from './controllers/users';
 import educationsController from './controllers/educations';
 import xpsController from './controllers/xps';
+import skillsController from './controllers/skills';
 const setupRoutes = (server: Express) => {
   server.get('/coucou', (req, res) => {
     res.send('hibou');
@@ -23,11 +24,12 @@ const setupRoutes = (server: Express) => {
 
   ///// hobbies /////
   //GET all hobbies
-  server.get('/api/hobbies');
+  // server.get('/api/hobbies' hobbiesController.getAllHobbies);
 
   ///// skills /////
   //GET all skills
-  server.get('/api/skills');
+  server.get('/api/skills/tech', skillsController.getTechSkills);
+  server.get('/api/skills/soft', skillsController.getSoftSkills);
 };
 
 export default setupRoutes;
