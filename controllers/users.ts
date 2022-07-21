@@ -8,7 +8,6 @@ const getAllUsers = (async (
   next: NextFunction
 ) => {
   try {
-    console.log('coucou');
     const users = await User.getAllUsers();
     return res.status(200).json(users);
   } catch (err) {

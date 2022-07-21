@@ -15,11 +15,15 @@ const corsOptions: cors.CorsOptions = {
 
 // middleware cors
 app.use(cors(corsOptions));
+app.use(express.json());
 setupRoutes(app);
 //middleware pour lire le body
-app.use(express.json());
+
 // A mettre à la fin pour gèrer les erreurs qui sortiront des routes
 app.use(handleError);
+
+//POUR NODEMAILER
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0 as unknown as string;
 
 app.listen(port, () => {
   /* eslint-disable no-console */

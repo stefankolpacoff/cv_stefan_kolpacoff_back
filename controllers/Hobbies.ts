@@ -1,20 +1,20 @@
 import { NextFunction, Request, RequestHandler, Response } from 'express';
-import Education from '../models/education';
+import Hobbies from '../models/hobbies';
 
-//GET all users
-const getAllEducations = (async (
+//GET all hobbies
+const getAllHobbies = (async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const educations = await Education.getAllEducation();
-    return res.status(200).json(educations);
+    const xps = await Hobbies.getAllHobbies();
+    return res.status(200).json(xps);
   } catch (err) {
     next(err);
   }
 }) as RequestHandler;
 
 export default {
-  getAllEducations,
+  getAllHobbies,
 };

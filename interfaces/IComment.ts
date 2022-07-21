@@ -1,8 +1,11 @@
 import { RowDataPacket } from 'mysql2';
 
-export default interface IAddress extends RowDataPacket {
+export default interface IComment extends RowDataPacket {
   id: number;
-  name: string;
+  firstName: string;
+  lastName: string;
+  phoneNumber: number;
   email: string;
+  subject: string;
   comment: string;
 }
