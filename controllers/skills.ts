@@ -8,7 +8,6 @@ const getTechSkills = (async (
   next: NextFunction
 ) => {
   try {
-    console.log('coucou');
     const users = await Skill.getTechSkills();
     return res.status(200).json(users);
   } catch (err) {
