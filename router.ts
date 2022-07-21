@@ -5,7 +5,7 @@ import xpsController from './controllers/xps';
 import skillsController from './controllers/skills';
 import hobbiesController from './controllers/Hobbies';
 import commentsController from './controllers/comments';
-
+import contactController from './helpers/contact';
 const setupRoutes = (server: Express) => {
   server.get('/coucou', (req, res) => {
     res.send('hibou');
@@ -35,7 +35,13 @@ const setupRoutes = (server: Express) => {
 
   ///// MESSAGE /////
   // POST message
-  server.post(`/api/comments`, commentsController.postComment);
+  server.post(
+    `/api/comments`,
+    commentsController.postComment,
+    contactController.sendMail
+  );
+  //SEND message
+  server.post(`/api/sendEmail`, contactController.sendMail);
 };
 
 export default setupRoutes;

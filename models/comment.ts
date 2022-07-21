@@ -4,7 +4,6 @@ import IComment from '../interfaces/IComment';
 
 // POST comment
 const postComment = async (comment: IComment): Promise<number> => {
-  console.log(comment);
   const results = await connection
     .promise()
     .query<ResultSetHeader>(
